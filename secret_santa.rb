@@ -26,7 +26,7 @@ sns = Aws::SNS::Client.new(
 )
 
 pairs.each do |(current_person, chosen_person)|
-  message = "Você tirou #{chosen_person} no amigo secreto! O presente deve ser de até R$50,00"
+  message = "Your secret santa is #{chosen_person}! The minimum price for the gift is R$50,00"
   phone_number = data[current_person]
   response = sns.publish(phone_number: phone_number, message: message)
   puts response
